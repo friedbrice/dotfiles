@@ -1,0 +1,25 @@
+[gui]
+	fontui = -family Verdana -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family Menlo -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+[user]
+	name = Daniel Brice
+	email = danielbrice@gmail.com
+[push]
+	default = simple
+[core]
+	editor = vim
+	excludesfile = ~/.gitexcludes
+[alias]
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	wipe = !git add -A && git commit -qm 'WIPE' && git reset HEAD~1 --hard
+	lawl = !git --no-pager log --graph --decorate --pretty=oneline --abbrev-commit --all
+	push-up = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+	lines = !git diff --shortstat `git hash-object -t tree /dev/null`
+[color]
+	ui = true
+[merge]
+	tool = meld
+[mergetool]
+	prompt = false
+[diff]
+	guitool = meld
