@@ -1,5 +1,5 @@
 export EDITOR=vim
-export PAGER=less
+export PAGER=most
 
 function git-containts {
     git merge-base --is-ancestor "$1" $(git rev-parse HEAD)
