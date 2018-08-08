@@ -1,5 +1,7 @@
 export EDITOR=vim
 export PAGER=most
+export VISUAL=vim
+export BROWSER=chromium
 
 function git-containts {
     git merge-base --is-ancestor "$1" $(git rev-parse HEAD)
