@@ -4,7 +4,7 @@ function link-file {
     if [ ! -f ~/$1 ]; then
         ln ./$1 ~/$1
     else
-        read -p "~/$1 exists, overwrite?" yn
+        read -p "~/$1 exists, overwrite? " yn
         case $yn in
             [Yy]* ) rm ~/$1 && ln ./$1 ~/$1 && echo "replaced $1" ;;
             [Nn]* ) echo "skipping $1" ;;
