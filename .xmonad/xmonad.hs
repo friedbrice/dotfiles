@@ -13,6 +13,7 @@ cnfg = defaultConfig
 
 addk =
     [ ((modm, xK_p), spawn "j4-dmenu-desktop")
+    , ((modm, xK_q), kill)
     ]
 
 addp =
