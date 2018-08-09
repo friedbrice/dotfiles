@@ -3,6 +3,7 @@ autoconf
 automake
 bash
 bash-completion
+biber
 binutils
 bison
 bzip2
@@ -67,6 +68,7 @@ noto-fonts
 openssh
 pacman
 pacman-contrib
+pandoc
 patch
 pciutils
 pcmanfm
@@ -86,6 +88,18 @@ systemd
 systemd-sysvcompat
 tar
 texinfo
+texlive-bibtexextra
+texlive-core
+texlive-fontsextra
+texlive-formatsextra
+texlive-games
+texlive-humanities
+texlive-latexextra
+texlive-music
+texlive-pictures
+texlive-pstricks
+texlive-publishers
+texlive-science
 tk
 tmux
 tree
