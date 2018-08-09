@@ -1,6 +1,6 @@
 [gui]
-	fontui = -family Ubuntu -size 12 -weight normal -slant roman -underline 0 -overstrike 0
-	fontdiff = -family \"Ubuntu Mono\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+	fontui = -family Ubuntu -size 13 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"Ubuntu Mono\" -size 13 -weight normal -slant roman -underline 0 -overstrike 0
 [user]
 	name = Daniel Brice
 	email = danielbrice@gmail.com
