@@ -82,6 +82,7 @@ rxvt-unicode-better-wheel-scrolling
 s-nail
 sed
 shadow
+stack
 sudo
 sysfsutils
 systemd
