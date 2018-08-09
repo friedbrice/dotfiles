@@ -1,7 +1,6 @@
 URxvt*foreground: gray
 URxvt*background: black
 URxvt*font: xft:Ubuntu Mono:size=12:antialias=true
-URxvt*letterSpace: -1
 URxvt*print-pipe: "cat > /dev/null"
 URxvt*scrollBar: False
 URxvt*secondaryScroll: 0
