@@ -1,6 +1,6 @@
 export EDITOR=vim
 export PAGER=most
-export VISUAL=vim
+export VISUAL=subl3
 export BROWSER=chromium
 
 function git-containts {
@@ -37,6 +37,7 @@ function sloc {
     ) | wc -l
 }
 
+alias subl='subl3'
 alias open='xdg-open'
 alias pdflatex='pdflatex -halt-on-error -synctex=1'
 alias tree='tree -C --dirsfirst'
