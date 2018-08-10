@@ -12,8 +12,10 @@ cnfg = defaultConfig
     }
 
 addk =
-    [ ((modm, xK_p), spawn "j4-dmenu-desktop")
-    , ((modm, xK_q), kill)
+    [ ((modm              , xK_p), spawn "j4-dmenu-desktop")
+    , ((modm              , xK_q), kill                    )
+    , ((modm .|. shiftMask, xK_c), return ()               )
+    , ((modm .|. shiftMask, xK_p), return ()               )
     ]
 
 addp =
