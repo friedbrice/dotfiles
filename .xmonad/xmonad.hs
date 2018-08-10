@@ -19,8 +19,8 @@ addk =
     ]
 
 addp =
-    [ ("<XF86MonBrightnessUp>"  , spawn "backlight raise 100"           )
-    , ("<XF86MonBrightnessDown>", spawn "backlight lower 100"           )
+    [ ("<XF86MonBrightnessUp>"  , spawn "backlight raise 50"            )
+    , ("<XF86MonBrightnessDown>", spawn "backlight lower 50"            )
     , ("<XF86AudioMute>"        , spawn "amixer -q set Master toggle"   )
     , ("<XF86AudioLowerVolume>" , spawn "amixer -q set Master 5- unmute")
     , ("<XF86AudioRaiseVolume>" , spawn "amixer -q set Master 5+ unmute")
