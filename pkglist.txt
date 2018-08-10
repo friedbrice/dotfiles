@@ -18,6 +18,7 @@ diffutils
 dropbox
 dropbox-cli
 e2fsprogs
+efibootmgr
 fakeroot
 file
 filesystem
@@ -110,6 +111,7 @@ ttf-dejavu
 ttf-droid
 ttf-freefont
 ttf-liberation
+ttf-ubuntu-font-family
 usbutils
 util-linux
 vi
