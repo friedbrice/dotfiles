@@ -20,7 +20,7 @@ concurrentlyRetryForever :: [CreateProcess] -> IO ()
 concurrentlyRetryForever procs = do
     handles <- runConcurrently . traverse (Concurrently . createProcess) $ procs
     codes <- traverse (waitForProcess . \(_,_,_,h) -> h) $ handles
-    let failures = [ proc | (proc, code) <- zip procs codes, code /= ExitSuccess ]
+    let failures = [ p | (p, c) <- zip procs codes, c /= ExitSuccess ]
     if null failures then pure () else concurrentlyRetryForever failures
 
 main :: IO ()
