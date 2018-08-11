@@ -1,27 +1,23 @@
-import XMonad
+import Graphics.X11.ExtraTypes.XF86
+import XMonad hiding (keys)
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
 
-main = xmonad =<< xmobar (additionalKeysP (additionalKeys cnfg addk) addp)
+main = xmonad =<< xmobar (additionalKeys conf keys)
 
-modm = mod4Mask
+keys =
+    [ ((mod4Mask              , xK_p                    ), spawn "j4-dmenu-desktop"              )
+    , ((mod4Mask              , xK_q                    ), kill                                  )
+    , ((mod4Mask .|. shiftMask, xK_c                    ), pure ()                               )
+    , ((mod4Mask .|. shiftMask, xK_p                    ), pure ()                               )
+    , ((noModMask             , xF86XK_MonBrightnessUp  ), spawn "backlight raise 50"            )
+    , ((noModMask             , xF86XK_MonBrightnessDown), spawn "backlight lower 50"            )
+    , ((noModMask             , xF86XK_AudioMute        ), spawn "amixer -q set Master toggle"   )
+    , ((noModMask             , xF86XK_AudioLowerVolume ), spawn "amixer -q set Master 5- unmute")
+    , ((noModMask             , xF86XK_AudioRaiseVolume ), spawn "amixer -q set Master 5+ unmute")
+    ]
 
-cnfg = defaultConfig
-    { modMask = modm
+conf = def
+    { modMask = mod4Mask
     , terminal = "urxvt"
     }
-
-addk =
-    [ ((modm              , xK_p), spawn "j4-dmenu-desktop")
-    , ((modm              , xK_q), kill                    )
-    , ((modm .|. shiftMask, xK_c), return ()               )
-    , ((modm .|. shiftMask, xK_p), return ()               )
-    ]
-
-addp =
-    [ ("<XF86MonBrightnessUp>"  , spawn "backlight raise 50"            )
-    , ("<XF86MonBrightnessDown>", spawn "backlight lower 50"            )
-    , ("<XF86AudioMute>"        , spawn "amixer -q set Master toggle"   )
-    , ("<XF86AudioLowerVolume>" , spawn "amixer -q set Master 5- unmute")
-    , ("<XF86AudioRaiseVolume>" , spawn "amixer -q set Master 5+ unmute")
-    ]
