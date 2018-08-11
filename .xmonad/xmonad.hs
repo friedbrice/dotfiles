@@ -20,4 +20,6 @@ keys =
 conf = def
     { modMask = mod4Mask
     , terminal = "urxvt"
+    , workspaces = ["1", "2", "3", "4", "5", "6"]
+    , startupHook = spawn "feh --bg-scale \"$HOME/.wallpaper\""
     }
