@@ -5,3 +5,6 @@ URxvt*print-pipe: "cat > /dev/null"
 URxvt*scrollBar: False
 URxvt*secondaryScroll: 0
 URxvt*secondaryWheel: 1
+URxvt*inheritPixmap: true
+URxvt*transparent: true
+URxvt*shading: 15
