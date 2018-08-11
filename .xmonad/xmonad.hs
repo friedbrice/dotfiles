@@ -1,6 +1,11 @@
 import Graphics.X11.ExtraTypes.XF86
 import XMonad hiding (keys)
 import XMonad.Hooks.DynamicLog
+import XMonad.Layout.BinarySpacePartition
+import XMonad.Layout.Circle
+import XMonad.Layout.Grid
+import XMonad.Layout.Reflect
+import XMonad.Layout.ThreeColumns
 import XMonad.Util.EZConfig
 
 main = xmonad =<< xmobar (additionalKeys conf keys)
@@ -22,4 +27,11 @@ conf = def
     , terminal = "urxvt"
     , workspaces = ["1", "2", "3", "4", "5", "6"]
     , startupHook = spawn "feh --bg-scale \"$HOME/.wallpaper\""
+    , layoutHook = reflectHoriz (Tall 1 (5/100) (55/100))
+               ||| Mirror (Tall 1 (5/100) (55/100))
+               ||| Full
+               ||| ThreeColMid 1 (5/100) (45/100)
+               ||| emptyBSP
+               ||| Circle
+               ||| Grid
     }
