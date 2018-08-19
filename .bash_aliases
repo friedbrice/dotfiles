@@ -3,7 +3,11 @@ export PAGER=most
 export VISUAL=subl3
 export BROWSER=chromium
 
-function git-containts {
+function git-tree {
+    tree -I "$(grep -hvE '^$|^#' {~/,,$(git rev-parse --show-toplevel)/}.gitignore|sed 's:/$::'|tr \\n '\|')"
+}
+
+function git-contains {
     git merge-base --is-ancestor "$1" $(git rev-parse HEAD)
 }
 
@@ -24,20 +28,28 @@ function sloc {
     COMMENT_MATCHER=''
 
     case $1 in
-        tex ) COMMENT_MATCHER='/^\s*%/d' ;;
-        hs | purs | sql ) COMMENT_MATCHER='/^\s*--/d' ;;
-        js | java | scala ) COMMENT_MATCHER='/^\s*\/\//d' ;;
-        py | sh | bash | graphql | yaml ) COMMENT_MATCHER='/^\s*#/d' ;;
+        tex )                             COMMENT_MATCHER='/^\s*%/d'    ;;
+        elm | hs | purs | sql )           COMMENT_MATCHER='/^\s*--/d'   ;;
+        java | js | scala )               COMMENT_MATCHER='/^\s*\/\//d' ;;
+        bash | graphql | py | sh | yaml ) COMMENT_MATCHER='/^\s*#/d'    ;;
     esac
 
-    ( find ./$2 -name "*.$1" -print0 \
+    ( find "./$2" -name "*.$1" -print0 \
         | xargs -0 cat \
         | sed '/^\s*$/d' \
         | sed "$COMMENT_MATCHER" \
     ) | wc -l
 }
 
-alias subl='subl3'
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto -h --group-directories-first'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+alias subl='subl3 --new-window'
 alias open='xdg-open'
 alias pdflatex='pdflatex -halt-on-error -synctex=1'
 alias tree='tree -C --dirsfirst'

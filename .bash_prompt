@@ -54,9 +54,9 @@ function set_git_branch {
   if [[ ${git_status} =~ "working tree clean" ]]; then
     state=""
   elif [[ ${git_status} =~ "Changes to be committed" ]]; then
-    state="${YELLOW}✗"
+    state="${YELLOW}X"
   else
-    state="${LIGHT_RED}✗"
+    state="${LIGHT_RED}X"
   fi
 
   # Set arrow icon based on status against remote.
@@ -107,5 +107,10 @@ function set_bash_prompt {
   PS1="${LIGHT_GREEN}\u${WHITE}@${YELLOW}\h${WHITE}:${LIGHT_BLUE}\w${COLOR_NONE} ${BRANCH}\n${PROMPT_SYMBOL} "
 }
 
+# Set the X11 window title
+function set_window_title {
+  echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD}\007"
+}
+
 # Tell bash to execute this function just before displaying its prompt.
-PROMPT_COMMAND=set_bash_prompt
+PROMPT_COMMAND='set_window_title && set_bash_prompt'
