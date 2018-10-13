@@ -1,10 +1,29 @@
-export EDITOR=vim
-export PAGER=most
-export VISUAL=subl3
-export BROWSER=chromium
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto -h --group-directories-first'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias subl='subl3 --new-window'
+alias open='xdg-open'
+alias pdflatex='pdflatex -halt-on-error -synctex=1'
+alias tree='tree -C --dirsfirst'
+alias watch='watch --color'
+alias dropbox='dropbox-cli'
+alias subl-profile='subl ~/friedbrice/dotfiles'
+alias ghc='ghc -dynamic' # because haskell is dynamically linked in arch linux
+alias npm-all='rm -rf node_modules && rm -rf bower_components && rm -rf output && npm install && bower install && npm run develop'
+alias cp-gen='cp -r ../lumi-powerpuff/web/generated_src/purs/Lumi/* src/__generated__/'
+
+function cl {
+    cd "$@" && ls
+}
 
 function git-tree {
-    tree -I "$(grep -hvE '^$|^#' {~/,,$(git rev-parse --show-toplevel)/}.gitignore|sed 's:/$::'|tr \\n '\|')"
+    tree -I "$(grep -hvE '^$|^#' {~/,,$(git rev-parse --show-toplevel)/}.gitignore|sed 's:/$::'|tr \\n '\|').git" -a $@
 }
 
 function git-contains {
@@ -40,17 +59,3 @@ function sloc {
         | sed "$COMMENT_MATCHER" \
     ) | wc -l
 }
-
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  alias ls='ls --color=auto -h --group-directories-first'
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-fi
-
-alias subl='subl3 --new-window'
-alias open='xdg-open'
-alias pdflatex='pdflatex -halt-on-error -synctex=1'
-alias tree='tree -C --dirsfirst'
-alias watch='watch --color'

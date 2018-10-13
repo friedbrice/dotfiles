@@ -1,7 +1,8 @@
-~*
+*~
 target/
 
 *.iml
 *.ipr
 .idea/
 NOTES.md
+package-lock.json

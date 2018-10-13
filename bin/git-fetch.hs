@@ -40,4 +40,4 @@ main = do
 
 -- relative to user home directory
 dirs :: [FilePath]
-dirs = ["friedbrice", "lumihq"]
+dirs = ["friedbrice", "lumihq", "abs/aur"]
