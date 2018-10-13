@@ -1,0 +1,13 @@
+dropbox
+dropbox-cli
+fswatch
+gyp-git
+j4-dmenu-desktop
+laptop-mode-tools
+plv8-bin
+rxvt-unicode-better-wheel-scrolling
+sublime-text-dev
+ttf-unifont
+v8-3.14
+visual-studio-code-bin
+xvkbd
