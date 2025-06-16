@@ -8,15 +8,11 @@ alias pdflatex='pdflatex -halt-on-error -synctex=1'
 alias tree='tree -C --dirsfirst'
 alias watch='watch --color'
 alias code='code --new-window'
-alias code-profile='code ~/.profile ~/.bashrc ~/.bash_aliases ~/.bash_prompt ~/.ghci ~/.ssh/config ~/.bindirs ~/.gitconfig'
-alias subl='code'
-alias subl-profile='code $HOME/friedbrice/dotfiles'
 alias regen-bindirs='gfind `brew --prefix`/opt -type d -follow -name gnubin > .bindirs'
 alias cat-pdf='gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=merged.pdf'
 alias make='make -e'
 
 alias ghci-core='ghci -ddump-simpl -dsuppress-idinfo -dsuppress-coercions -dsuppress-type-applications -dsuppress-uniques -dsuppress-module-prefixes'
-
 alias ghci-core-goose='ghci -ddump-simpl -dsuppress-all -dsuppress-uniques -dno-suppress-type-applications -dno-suppress-type-signatures'
 
 function git-filediff {
