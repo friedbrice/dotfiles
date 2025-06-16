@@ -1,0 +1,11 @@
+*~
+*.iml
+*.ipr
+.idea/
+.tags
+*.sublime-project
+*.sublime-workspace
+NOTES.md
+.DS_Store
+*.code-workspace
+.vscode/

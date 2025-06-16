@@ -1,7 +1,19 @@
-syntax on
+set nocompatible
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'purescript-contrib/purescript-vim'
+call vundle#end()
 filetype plugin indent on
 
-set nocompatible
+syntax on
+
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/backup//
+set directory=~/.vim/.swp//
+
 set number
 set nowrap
 set showmode
@@ -16,7 +28,8 @@ set expandtab
 set incsearch
 set mouse=a
 set history=1000
-set clipboard=unnamedplus,autoselect
+set clipboard=unnamed
+set backspace=indent,eol,start
 
 set completeopt=menuone,menu,longest
 
@@ -33,6 +46,7 @@ set cmdheight=1
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
@@ -43,3 +57,6 @@ endfunction
 autocmd BufWritePre * call TrimWhiteSpace()
 
 set colorcolumn=81
+
+
+au BufRead,BufNewFile *.purs		set filetype=purescript

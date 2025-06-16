@@ -1,0 +1,57 @@
+[gui]
+	fontui = -family Ubuntu -size 15 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"Ubuntu Mono\" -size 15 -weight normal -slant roman -underline 0 -overstrike 0
+	spellingdictionary = none
+	diffcontext = 10
+	gcwarning = false
+[user]
+	name = Daniel Brice
+	email = danielbrice@gmail.com
+[push]
+	default = simple
+[core]
+	pager = most
+	editor = vim
+	excludesfile = ~/.gitignore
+[alias]
+	kommit = commit --no-verify
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	wipe = !git add -A && git commit -qm 'WIPE' && git reset HEAD~1 --hard
+	lawl = !git --no-pager log --graph --decorate --pretty=oneline --abbrev-commit --all
+	lines = !git --no-pager diff --shortstat $(git hash-object -t tree /dev/null)
+	push-up = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+	changed = !git --no-pager show --pretty="" --name-only
+	lols = log --color --graph --pretty=format:'%G? %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+  review = add -up
+[color]
+	ui = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[pull]
+	rebase = false
+[diff]
+	tool = meld
+[difftool "kdiff3"]
+	path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+[difftool]
+	prompt = false
+	keepBackup = false
+	trustExitCode = false
+[mergetool]
+	prompt = false
+	keepBackup = false
+	keepTemporaries = false
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	features = line-numbers decorations
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true
+	prunTags = true
+[gpg "ssh"]
+	allowedSignersFile = ~/.config/git/allowed_signers
